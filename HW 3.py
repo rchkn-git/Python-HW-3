@@ -26,11 +26,9 @@ if len(array) != N or N == 0:
     print('Введенные элементы не соответствуют заданному количеству!')
 else:
     X = int(input('Введите число, близкое к которому хотите найти: '))
-    # res = 0
     check = abs(X - array[0])
     print(check)
     for i in range(N):
-        # check = array[i]
         sub = abs(X - array[i])
         if check > sub:
             res = array[i]
