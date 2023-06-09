@@ -20,21 +20,22 @@
 # В последующих  строках записаны N целых чисел Ai.
 # Последняя строка содержит число X.
 
-# N = int(input('Введите длину массива: '))
-# array = list(map(int, input('Введите сам массив: ').split()))
-# if len(array) != N or N == 0:
-#     print('Введенные элементы не соответствуют заданному количеству!')
-# else:
-#     X = int(input('Введите число, близкое к которому хотите найти: '))
-#     res = 0
-#     for i in range(N):
-#         check = 100
-#         sub = N - array[i]
-#         if sub < 0:
-#             sub *= -1
-#         if check > sub:
-#             res = array[i]
-#     print('Наиболее близкое число к ', X, ' - это ', res)
+N = int(input('Введите длину массива: '))
+array = list(map(int, input('Введите сам массив: ').split()))
+if len(array) != N or N == 0:
+    print('Введенные элементы не соответствуют заданному количеству!')
+else:
+    X = int(input('Введите число, близкое к которому хотите найти: '))
+    # res = 0
+    check = abs(X - array[0])
+    print(check)
+    for i in range(N):
+        # check = array[i]
+        sub = abs(X - array[i])
+        if check > sub:
+            res = array[i]
+            check = sub
+    print('Наиболее близкое число к ', X, ' - это ', res)
 
 # *Задача 20: * В настольной игре Скрабл (Scrabble) каждая буква имеет определенную ценность.
 # В случае с английским алфавитом очки распределяются так:
@@ -58,25 +59,25 @@
 # либо только русские буквы.
 
 
-english = {1: 'AEIOULNSTR', 2: 'DG', 3: 'BCMP', 4: 'FHVWY', 5: 'K', 8: 'JX', 10: 'QZ'}
-russian = {1: 'АВЕИНОРСТ', 2: 'ДКЛМПУ', 3: 'БГЁЬЯ', 4: 'ЙЫ', 5: 'ЖЗХЦЧ', 8: 'ШЭЮ', 10: 'ФЩЪ'}
+# english = {1: 'AEIOULNSTR', 2: 'DG', 3: 'BCMP', 4: 'FHVWY', 5: 'K', 8: 'JX', 10: 'QZ'}
+# russian = {1: 'АВЕИНОРСТ', 2: 'ДКЛМПУ', 3: 'БГЁЬЯ', 4: 'ЙЫ', 5: 'ЖЗХЦЧ', 8: 'ШЭЮ', 10: 'ФЩЪ'}
 
-N = abs(int(input('Введите 0, используем английскую раскладку, либо 1, если в русскую: ')))
-word = input('Введите слово: ').upper()
+# N = abs(int(input('Введите 0, используем английскую раскладку, либо 1, если в русскую: ')))
+# word = input('Введите слово: ').upper()
 
-if N == 0:
-	sum = 0
-	for letter in word:
-		for key, value in english.items():
-			if letter in value:
-			    sum += key
-	print('За это слово вы получаете ', sum, ' очков.')
-elif N == 1:
-	sum = 0
-	for letter in word:
-		for key, value in russian.items():
-			if letter in value:
-			    sum += key
-	print('За это слово вы получаете ', sum, ' очков.')
-else:
-	print('Вы ввели какой-то не тот номер языка, эльфийский мы не обрабатываем...')
+# if N == 0:
+# 	sum = 0
+# 	for letter in word:
+# 		for key, value in english.items():
+# 			if letter in value:
+# 			    sum += key
+# 	print('За это слово вы получаете ', sum, ' очков.')
+# elif N == 1:
+# 	sum = 0
+# 	for letter in word:
+# 		for key, value in russian.items():
+# 			if letter in value:
+# 			    sum += key
+# 	print('За это слово вы получаете ', sum, ' очков.')
+# else:
+# 	print('Вы ввели какой-то не тот номер языка, эльфийский мы не обрабатываем...')
